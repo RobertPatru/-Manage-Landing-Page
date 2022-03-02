@@ -1,0 +1,99 @@
+:root {
+    /* Primary */
+    --bright-red: hsl(12, 88%, 59%);
+    --dark-blue: hsl(228, 39%, 23%);
+
+    /* Neutral */
+    --dark-grayish-blue: hsl(227, 12%, 61%);
+    --very-dark-blue: hsl(233, 12%, 13%);
+    --very-pale-red: hsl(13, 100%, 96%);
+    --very-light-gray: hsl(0, 0%, 98%);
+}
+
+*, *::after, *::before {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.container {
+    padding: 0 20px;
+}
+
+h1 {
+    color: var(--dark-blue);
+    text-align: center;
+    font-size: 30px;
+    margin: 20px 0;
+}
+
+h3 {
+    color: var(--dark-blue);
+    text-align: center;
+}
+
+p {
+    color: var(--dark-grayish-blue);
+    text-align: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-margin-to-section {
+    margin: 50px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.button {
+    padding: 10px 25px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    color: var(--very-light-gray);
+    background-color: var(--bright-red);
+
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.shadow {
+    box-shadow: 0 5px 5px rgba(242, 95, 58, 0.5);
+    margin: 20px 0;
+}
+
+.navbar {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ##################################       FIRST SECTION        ################################## */
+.first-section {
+    display: grid;
+    grid-template-areas: 
+        'illustation illustation'
+        'sub-div sub-div'
+    ;
+}
+
+.illustration-intro {
+    width: 100%;
+    grid-area: illustation;
+}
+
+.first-section-sub-div {
+    grid-area: sub-div;
+}
