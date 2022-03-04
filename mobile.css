@@ -20,15 +20,11 @@ body {
     font-family: 'Be Vietnam Pro', sans-serif;
 }
 
-.container {
-    padding: 0 20px;
-}
-
 h1 {
     color: var(--dark-blue);
     text-align: center;
     font-size: 30px;
-    margin: 20px 0;
+    margin: 5px 0;
 }
 
 h3 {
@@ -39,6 +35,7 @@ h3 {
 p {
     color: var(--dark-grayish-blue);
     text-align: center;
+    margin: 10px 0;
 }
 
 .flex-column {
@@ -48,8 +45,33 @@ p {
     justify-content: center;
 }
 
+.flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .add-margin-to-section {
-    margin: 50px 0;
+    margin: 70px 0;
+}
+
+.add-margin-medium {
+    margin: 35px 0;
+}
+
+.add-padding-lr {
+    padding: 0 20px;
+}
+
+.add-padding-around {
+    padding: 20px;
+}
+
+.pale-background {
+    background-color: var(--very-pale-red);
+    border-radius: 20px 5px 5px 20px;
+    z-index: -10;
+    width: 100%;
 }
 
 .hidden {
@@ -68,6 +90,11 @@ p {
     font-size: 15px;
 }
 
+.button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
 .shadow {
     box-shadow: 0 5px 5px rgba(242, 95, 58, 0.5);
     margin: 20px 0;
@@ -80,7 +107,7 @@ p {
     justify-content: space-between;
 }
 
-/* ##################################       FIRST SECTION        ################################## */
+/* ##################################       <!-- Bring Everyone Toghter (1st Section) -->        ################################## */
 .first-section {
     display: grid;
     grid-template-areas: 
@@ -96,4 +123,105 @@ p {
 
 .first-section-sub-div {
     grid-area: sub-div;
+}
+
+/* ##################################       <!-- What's different about us (2nd Section) -->        ################################## */
+
+.grid {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-areas: 
+        'grid-button grid-title grid-title grid-title grid-title'
+        'grid-p grid-p grid-p  grid-p grid-p'
+    ;
+}
+
+.grid-button {
+    grid-area: grid-button;
+    position: relative;
+
+    font-size: 20px;
+    padding: 10px 25px;
+    width: 90px;
+    height: 46.4px;
+}
+
+/* ##################################       <!-- What they've said (3rd Section) -->        ################################## */
+
+.avater-picture {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 20px 5px;
+    background-color: white;
+    border-radius: 100%;
+    border: 2px var(--bright-red) solid;
+}
+
+.dot:hover {
+    cursor: pointer;
+}
+
+.selected {
+    background-color: var(--bright-red);
+}
+
+/* ##################################       <!-- Simplify how your team work (4th Section) -->        ################################## */
+
+.forth-section {
+    padding: 50px 20px;
+    background-color: var(--bright-red);
+}
+
+.white-text {
+    color: white;
+}
+
+.white-button {
+    background-color: white;
+    color: var(--bright-red);
+}
+
+/* ##################################       <!-- Footer 5th Section -->        ################################## */
+
+footer {
+    background-color: var(--very-dark-blue);
+    color: white;
+
+    display: grid;
+    grid-template-areas: 
+        'seach-bar-div seach-bar-div'
+        'options-1 options-2'
+        'social-media social-media'
+        'logo logo'
+    ;
+}
+
+.logo {
+    grid-area: logo;
+}
+
+.social-media {
+    grid-area: social-media;
+}
+
+.options-1 {
+    grid-area: options-1;
+}
+
+.options-2 {
+    grid-area: options-2;
+}
+
+.search-bar-div {
+    grid-area: search-bar-div;
+}
+
+.copyrights {
+    grid-area: copyrights;
 }
