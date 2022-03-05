@@ -51,12 +51,20 @@ p {
     justify-content: center;
 }
 
+.flex-start {
+    justify-content: flex-start;
+}
+
 .add-margin-to-section {
     margin: 70px 0;
 }
 
 .add-margin-medium {
     margin: 35px 0;
+}
+
+.add-margin-little {
+    margin: 20px 0;
 }
 
 .add-padding-lr {
@@ -100,6 +108,13 @@ p {
     margin: 20px 0;
 }
 
+.link {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
 .navbar {
     height: 100px;
     display: flex;
@@ -139,8 +154,6 @@ p {
 
 .grid-button {
     grid-area: grid-button;
-    position: relative;
-
     font-size: 20px;
     padding: 10px 25px;
     width: 90px;
@@ -194,11 +207,13 @@ footer {
     color: white;
 
     display: grid;
+    justify-items: center;
     grid-template-areas: 
-        'seach-bar-div seach-bar-div'
+        'search-bar-div search-bar-div'
         'options-1 options-2'
         'social-media social-media'
         'logo logo'
+        'copyrights copyrights'
     ;
 }
 
@@ -220,8 +235,20 @@ footer {
 
 .search-bar-div {
     grid-area: search-bar-div;
+    display: grid;
+    justify-content: space-between;
 }
 
 .copyrights {
     grid-area: copyrights;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+}
+
+.social-icon:hover {
+    cursor: pointer;
 }
