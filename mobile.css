@@ -252,3 +252,8 @@ footer {
 .social-icon:hover {
     cursor: pointer;
 }
+
+.search-input {
+    border-radius: 20px;
+    padding: 10px;
+}
