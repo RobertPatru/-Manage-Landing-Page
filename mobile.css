@@ -55,6 +55,10 @@ p {
     justify-content: flex-start;
 }
 
+.space-between {
+    justify-content: space-between;
+}
+
 .add-margin-to-section {
     margin: 70px 0;
 }
@@ -155,8 +159,8 @@ p {
 .grid-button {
     grid-area: grid-button;
     font-size: 20px;
-    padding: 10px 25px;
-    width: 90px;
+    /* padding: 10px 25px; */
+    /* width: 90px; */
     height: 46.4px;
 }
 
