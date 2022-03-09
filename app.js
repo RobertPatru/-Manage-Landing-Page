@@ -1,5 +1,6 @@
 // Event Listeners
 const dotsContainer = document.querySelector('.dots-container');
+const testimonialContainer = document.querySelector('.testimonials-container');
 const firstTestimonial = document.querySelector('.div-4');
 const secondTestimonial = document.querySelector('.div-5');
 const thirdTestimonial = document.querySelector('.div-6');
@@ -77,21 +78,53 @@ dotsContainer.addEventListener('click', (e) => {
 
 // ############################ Handle the Phone Swipe to change the testimonial
 
-let touchstartX = 0
-let touchendX = 0
+testimonialContainer.addEventListener('touchstart', handleTouchStart);
+testimonialContainer.addEventListener('touchmove', handleTouchMove);
+// testimonialContainer.addEventListener('touchend', handleTouchEnd);
 
-const slider = document.getElementById('testimonials-container')
+let touchStartOnXAxis;
+let currentProfileDetails = 1;
 
-function handleGesture() {
-  if (touchendX < touchstartX) alert('swiped left!');
-  if (touchendX > touchstartX) alert('swiped right!');
+function handleTouchStart(e) {
+    touchStartOnXAxis = e.touches[0].clientX;
+    console.log('Starting point: ' + touchStartOnXAxis);
 }
 
-slider.addEventListener('touchstart', e => {
-    touchstartX = e.changedTouches[0].screenX
-  })
-  
-  slider.addEventListener('touchend', e => {
-    touchendX = e.changedTouches[0].screenX
-    handleGesture()
-  })
+function handleTouchMove(e) {
+    let touchMove = e.touches[0];
+    
+
+    // moveChange will keep the difference from the starting point of touch and the current touch point on X axis
+    let distanceBetweenPoints = touchStartOnXAxis - e.touches[0].clientX;
+    console.log(distanceBetweenPoints);
+
+    if (distanceBetweenPoints > 150) {
+        if (currentProfileDetails == 1) {
+            firstTestimonial.classList.add('hidden');
+            secondTestimonial.classList.remove('hidden');
+            touchStartOnXAxis = 0;
+            currentProfileDetails++;
+        }
+        else if (currentProfileDetails == 2) {
+            secondTestimonial.classList.add('hidden');
+            thirdTestimonial.classList.remove('hidden');
+            touchStartOnXAxis = 0;
+            currentProfileDetails++;
+        }
+        else if (currentProfileDetails == 3) {
+            // display the correct info based on their number
+            secondTestimonial.classList.add('hidden');
+            thirdTestimonial.classList.add('hidden');
+            firstTestimonial.classList.remove('hidden');
+            // reset the position for starting point so no more than one change happene
+            touchStartOnXAxis = 0;
+            // increase the info id to the correct one
+            currentProfileDetails = 1;
+        }
+        
+    }
+}
+
+function handleTouchEnd(e) {
+
+}
