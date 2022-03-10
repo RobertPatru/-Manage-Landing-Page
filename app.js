@@ -80,51 +80,151 @@ dotsContainer.addEventListener('click', (e) => {
 
 testimonialContainer.addEventListener('touchstart', handleTouchStart);
 testimonialContainer.addEventListener('touchmove', handleTouchMove);
-// testimonialContainer.addEventListener('touchend', handleTouchEnd);
 
 let touchStartOnXAxis;
 let currentProfileDetails = 1;
 
 function handleTouchStart(e) {
     touchStartOnXAxis = e.touches[0].clientX;
-    console.log('Starting point: ' + touchStartOnXAxis);
 }
 
 function handleTouchMove(e) {
     let touchMove = e.touches[0];
-    
-
+ 
     // moveChange will keep the difference from the starting point of touch and the current touch point on X axis
     let distanceBetweenPoints = touchStartOnXAxis - e.touches[0].clientX;
-    console.log(distanceBetweenPoints);
 
+    // if the user swipes from right to left
     if (distanceBetweenPoints > 150) {
+        currentProfileDetails++;
+        console.log(currentProfileDetails);
+
         if (currentProfileDetails == 1) {
-            firstTestimonial.classList.add('hidden');
-            secondTestimonial.classList.remove('hidden');
+            // display the correct info based on their number
+            firstTestimonial.classList.remove('hidden');
+            secondTestimonial.classList.add('hidden');
+            thirdTestimonial.classList.add('hidden');
+
+            // reset the position for starting point so no more than one change happene
             touchStartOnXAxis = 0;
-            currentProfileDetails++;
+           
+
+            // "select" the correct dot by appying the class selected
+            dotsContainer.children[0].classList.add('selected');
+            // "unselect" other two orange dots
+            dotsContainer.children[1].classList.remove('selected');
+            dotsContainer.children[2].classList.remove('selected');
+            console.log('s-a activat scenariul unu');
+            console.log(currentProfileDetails);
         }
         else if (currentProfileDetails == 2) {
-            secondTestimonial.classList.add('hidden');
-            thirdTestimonial.classList.remove('hidden');
+            // display the correct info based on their number
+            secondTestimonial.classList.remove('hidden');
+            firstTestimonial.classList.add('hidden');
+            thirdTestimonial.classList.add('hidden');
+
+            // reset the position for starting point so no more than one change happene
             touchStartOnXAxis = 0;
-            currentProfileDetails++;
+           
+            
+               // "select" the correct dot by appying the class selected
+            dotsContainer.children[1].classList.add('selected');
+            console.log(dotsContainer.children[1]);
+            // "unselect" other two orange dots
+            dotsContainer.children[0].classList.remove('selected');
+            dotsContainer.children[2].classList.remove('selected');
+            console.log(dotsContainer.children[1]);
+            console.log('s-a activat scenariul doi');
+            console.log(currentProfileDetails);
         }
         else if (currentProfileDetails == 3) {
             // display the correct info based on their number
+            firstTestimonial.classList.add('hidden');
             secondTestimonial.classList.add('hidden');
-            thirdTestimonial.classList.add('hidden');
-            firstTestimonial.classList.remove('hidden');
+            thirdTestimonial.classList.remove('hidden');
+
             // reset the position for starting point so no more than one change happene
             touchStartOnXAxis = 0;
             // increase the info id to the correct one
-            currentProfileDetails = 1;
+            currentProfileDetails = 0;
+
+            // "select" the correct dot by appying the class selected
+            dotsContainer.children[2].classList.add('selected');
+            // "unselect" other two orange dots
+            dotsContainer.children[0].classList.remove('selected');
+            dotsContainer.children[1].classList.remove('selected');
+            console.log(dotsContainer.children[2]);
+            console.log(currentProfileDetails);
+            console.log(thirdTestimonial);
         }
         
     }
-}
 
-function handleTouchEnd(e) {
+    console.log(currentProfileDetails);
 
+    // if the user swipes from left to right
+    if (distanceBetweenPoints < -150) {
+        currentProfileDetails--;
+
+        if (currentProfileDetails == -1) {
+            // display the correct info based on their number
+            firstTestimonial.classList.remove('hidden');
+            secondTestimonial.classList.add('hidden');
+            thirdTestimonial.classList.add('hidden');
+
+            // reset the position for starting point so no more than one change happene
+            touchStartOnXAxis = 0;
+           
+            // increase the info id to the correct one
+            currentProfileDetails = 4;
+
+            // "select" the correct dot by appying the class selected
+            dotsContainer.children[0].classList.add('selected');
+            // "unselect" other two orange dots
+            dotsContainer.children[1].classList.remove('selected');
+            dotsContainer.children[2].classList.remove('selected');
+            console.log('s-a activat scenariul unu');
+            console.log(currentProfileDetails);
+        }
+        else if (currentProfileDetails == -2) {
+            // display the correct info based on their number
+            secondTestimonial.classList.remove('hidden');
+            firstTestimonial.classList.add('hidden');
+            thirdTestimonial.classList.add('hidden');
+
+            // reset the position for starting point so no more than one change happene
+            touchStartOnXAxis = 0;
+           
+            
+               // "select" the correct dot by appying the class selected
+            dotsContainer.children[1].classList.add('selected');
+            console.log(dotsContainer.children[1]);
+            // "unselect" other two orange dots
+            dotsContainer.children[0].classList.remove('selected');
+            dotsContainer.children[2].classList.remove('selected');
+            console.log(dotsContainer.children[1]);
+            console.log('s-a activat scenariul doi');
+            console.log(currentProfileDetails);
+        }
+        else if (currentProfileDetails == -3) {
+            // display the correct info based on their number
+            firstTestimonial.classList.add('hidden');
+            secondTestimonial.classList.add('hidden');
+            thirdTestimonial.classList.remove('hidden');
+
+            // reset the position for starting point so no more than one change happene
+            touchStartOnXAxis = 0;
+            
+
+            // "select" the correct dot by appying the class selected
+            dotsContainer.children[2].classList.add('selected');
+            // "unselect" other two orange dots
+            dotsContainer.children[0].classList.remove('selected');
+            dotsContainer.children[1].classList.remove('selected');
+            console.log(dotsContainer.children[2]);
+            console.log(currentProfileDetails);
+            console.log(thirdTestimonial);
+        }
+        
+    }
 }
