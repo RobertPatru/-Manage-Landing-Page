@@ -169,6 +169,8 @@ p {
 .avater-picture {
     margin-top: 50px;
     margin-bottom: 20px;
+    border-radius: 50%;
+    border: 3px var(--bright-red) solid;
 }
 
 .dot {
@@ -186,6 +188,11 @@ p {
 
 .selected {
     background-color: var(--bright-red);
+}
+
+.dot,
+.avater-picture {
+    transition: all 0.2s linear forwards;
 }
 
 /* ##################################       <!-- Simplify how your team work (4th Section) -->        ################################## */
@@ -219,6 +226,8 @@ footer {
         'logo logo'
         'copyrights copyrights'
     ;
+
+    height: 100%;
 }
 
 .logo {
