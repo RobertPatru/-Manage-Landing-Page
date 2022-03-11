@@ -84,26 +84,26 @@ testimonialContainer.addEventListener('touchmove', handleTouchMove);
 let touchStartOnXAxis;
 let currentProfileDetails = 1;
 
+// let swipe run again
+let allolwSwipe = false;
+
 function handleTouchStart(e) {
     touchStartOnXAxis = e.touches[0].clientX;
+
+    // if the user clicks on the screen then allow him to change the profile on swipe
+    allolwSwipe = true;
 }
 
 function handleTouchMove(e) {
     let touchMove = e.touches[0].clientX;
  
     // moveChange will keep the difference from the starting point of touch and the current touch point on X axis
+    // so I know if the user swipes left or right based on the start touch point and curent touch point
     let distanceBetweenPoints = touchStartOnXAxis - e.touches[0].clientX;
-
-    console.log('🥶Profile selected: ' + currentProfileDetails);
-    console.log('😬Primul punct in care dai click: ' + touchStartOnXAxis);
-    console.log('🎃Locul in care te afli cu touch-ul: ' + touchMove);
-    console.log('👹Diferenta dintre punctul de placarer si cel de sosire' + distanceBetweenPoints);
-    console.log("");
 
 
     // if the user swipes from right to left
-    if (distanceBetweenPoints > 150) {
-        
+    if (distanceBetweenPoints > 150 && allolwSwipe == true) {
         currentProfileDetails++;
 
         if (currentProfileDetails == 1) {
@@ -111,10 +111,7 @@ function handleTouchMove(e) {
             firstTestimonial.classList.remove('hidden');
             secondTestimonial.classList.add('hidden');
             thirdTestimonial.classList.add('hidden');
-
-            // reset the position for starting point so no more than one change happene
-            touchStartOnXAxis = 0;
-           
+         
 
             // "select" the correct dot by appying the class selected
             dotsContainer.children[0].classList.add('selected');
@@ -129,9 +126,6 @@ function handleTouchMove(e) {
             firstTestimonial.classList.add('hidden');
             thirdTestimonial.classList.add('hidden');
 
-            // reset the position for starting point so no more than one change happene
-            touchStartOnXAxis = 0;
-           
             
             // "select" the correct dot by appying the class selected
             dotsContainer.children[1].classList.add('selected');
@@ -146,8 +140,7 @@ function handleTouchMove(e) {
             secondTestimonial.classList.add('hidden');
             thirdTestimonial.classList.remove('hidden');
 
-            // reset the position for starting point so no more than one change happene
-            touchStartOnXAxis = 0;
+
   
             // increase the info id to the correct one
             currentProfileDetails = 0;
@@ -158,14 +151,13 @@ function handleTouchMove(e) {
             dotsContainer.children[0].classList.remove('selected');
             dotsContainer.children[1].classList.remove('selected');
         }
-        
+
+        allolwSwipe = false;     
     }
 
- 
-
-
     // if the user swipes from left to right
-    if (distanceBetweenPoints < -150) {
+    if (distanceBetweenPoints < -150 && allolwSwipe == true) {
+    
         currentProfileDetails--;
 
         if (currentProfileDetails <= 0) {
@@ -178,11 +170,6 @@ function handleTouchMove(e) {
             secondTestimonial.classList.add('hidden');
             thirdTestimonial.classList.add('hidden');
 
-            // reset the position for starting point so no more than one change happene
-            touchStartOnXAxis = 0;
-           
-            // increase the info id to the correct one
-            currentProfileDetails = 4;
 
             // "select" the correct dot by appying the class selected
             dotsContainer.children[0].classList.add('selected');
@@ -195,9 +182,6 @@ function handleTouchMove(e) {
             secondTestimonial.classList.remove('hidden');
             firstTestimonial.classList.add('hidden');
             thirdTestimonial.classList.add('hidden');
-
-            // reset the position for starting point so no more than one change happene
-            touchStartOnXAxis = 0;
            
             
             // "select" the correct dot by appying the class selected
@@ -212,9 +196,6 @@ function handleTouchMove(e) {
             firstTestimonial.classList.add('hidden');
             secondTestimonial.classList.add('hidden');
             thirdTestimonial.classList.remove('hidden');
-
-            // reset the position for starting point so no more than one change happene
-            touchStartOnXAxis = 0;
             
 
             // "select" the correct dot by appying the class selected
@@ -223,6 +204,7 @@ function handleTouchMove(e) {
             dotsContainer.children[0].classList.remove('selected');
             dotsContainer.children[1].classList.remove('selected');
         }
-        
-    }
+   
+        allolwSwipe = false;       
+    }     
 }
