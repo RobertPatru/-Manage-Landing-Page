@@ -279,7 +279,9 @@ footer {
 /* ##################################       <!-- Style the hamburgen menu when it's activated -->        ################################## */
 .overlay::after {
     content: '';
-    position: absolute;
+    position: fixed;
+    top: 0%;
+    left: 0%;
     height: 300vh;
     width: 100vw;
     top: 0;
@@ -303,4 +305,10 @@ footer {
     font-weight: 600;
     text-align: center;
     margin: 20px 0;
+    padding: 5px;
+}
+
+.list-item:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
