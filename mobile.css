@@ -83,11 +83,15 @@ p {
     padding: 20px;
 }
 
-.pale-background {
+.pale-red-background {
     background-color: var(--very-pale-red);
     border-radius: 20px 5px 5px 20px;
     z-index: -10;
     width: 100%;
+}
+
+.gray-background {
+    background: var(--very-light-gray);
 }
 
 .hidden {
@@ -311,4 +315,87 @@ footer {
 .list-item:hover {
     cursor: pointer;
     text-decoration: underline;
+}
+
+
+/* ______________________________       MEDIA QUERIES MAX-WIDTH 450PX */
+@media only screen and (min-width: 450px) {
+    .search-bar-div .sub-div {
+        display: flex;
+        justify-content: space-between;
+        min-width: 70vw;
+    }
+
+    .search-input {
+        width: 50vw;
+    }
+}
+
+/* ______________________________       MEDIA QUERIES MAX-WIDTH 850PX */
+@media only screen and (min-width: 850px) {
+    /* =======          HEADER AND NAVBAR */
+    .hidden {
+        display: block;
+    }
+
+    .hamburger-menu-icon {
+        display: none;
+    }
+
+    /* categories from navbar */
+    .hamburger-menu li {
+        margin: 0 10px;
+    }
+
+
+    /* =====================      <!-- Bring Everyone Toghter (1st Section) --> */
+    .first-section {
+        display: grid;
+        grid-template-areas:
+            'first-section-sub-div illustration-intro illustration-intro'
+        ;
+        grid-gap: 1rem;
+        margin: 80px 0;
+    }
+
+    .first-section-sub-div {
+        grid-area: first-section-sub-div;
+        align-items: flex-start;
+    }
+    .first-section-sub-div h1 {
+        text-align: left;
+    }
+    .first-section-sub-div p {
+        margin: 40px 0;
+        text-align: left;
+    }
+
+    .illustration-intro {
+        grid-area: illustration-intro;
+    }
+
+
+
+    /* =====================       <!-- What's different about us (2nd Section) --> */
+    .second-section {
+        display: flex;
+        align-items: flex-start;
+        grid-gap: 2rem;
+    }
+
+    /* select the p inside the first div of second section */
+    .second-section > div:first-of-type > p {
+        margin: 40px 0;
+    }
+
+    /* select all child emenets of the div inside second section */
+    .second-section > div:first-of-type * {
+        text-align: start;
+    }
+
+    .div-1-sub-div,
+    .div-2-sub-div,
+    .div-3-sub-div {
+        background-color: white;
+    }
 }

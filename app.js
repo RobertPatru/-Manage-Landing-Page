@@ -26,8 +26,6 @@ dotsContainer.addEventListener('click', (e) => {
         // hide the rest of the avatars
         secondTestimonial.classList.add('hidden');
         thirdTestimonial.classList.add('hidden');
-
-        console.log(e.target);
     }
 
     else if (e.target.classList.contains('dot-2')) {
@@ -47,8 +45,6 @@ dotsContainer.addEventListener('click', (e) => {
         // hide the rest of the avatars
         firstTestimonial.classList.add('hidden');
         thirdTestimonial.classList.add('hidden');
-        console.log(e.target);
-
     }
 
     else if (e.target.classList.contains('dot-3')) {
@@ -68,8 +64,6 @@ dotsContainer.addEventListener('click', (e) => {
         // hide the rest of the avatars
         firstTestimonial.classList.add('hidden');
         secondTestimonial.classList.add('hidden');
-        console.log(e.target);
-
     }
 });
 
@@ -92,11 +86,9 @@ function handleTouchStart(e) {
 
     // if the user clicks on the screen then allow him to change the profile on swipe
     allolwSwipe = true;
-    console.log('Userul are voi sa face swipe din nou: ' + allolwSwipe);
 }
 
 function handleTouchMove(e) {
-    console.log('Se activeaza functia de swipe');
     let touchMove = e.touches[0].clientX;
  
     // moveChange will keep the difference from the starting point of touch and the current touch point on X axis
@@ -121,7 +113,6 @@ function handleTouchMove(e) {
 
             dotsContainer.children[1].classList.remove('selected');
             dotsContainer.children[2].classList.remove('selected');
-            console.log('Swipe left');
         }
         else if (currentProfileDetails == 2) {
             // display the correct info based on their number
@@ -136,10 +127,8 @@ function handleTouchMove(e) {
             // "unselect" other two orange dots
             dotsContainer.children[0].classList.remove('selected');
             dotsContainer.children[2].classList.remove('selected');
-            console.log('Swipe left');
         }
         else if (currentProfileDetails == 3) {
-        console.log('Swipe right');
             // display the correct info based on their number
             firstTestimonial.classList.add('hidden');
             secondTestimonial.classList.add('hidden');
@@ -155,7 +144,6 @@ function handleTouchMove(e) {
             // "unselect" other two orange dots
             dotsContainer.children[0].classList.remove('selected');
             dotsContainer.children[1].classList.remove('selected');
-            console.log('Swipe left');
         }
 
         allolwSwipe = false;     
