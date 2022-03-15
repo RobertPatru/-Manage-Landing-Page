@@ -320,6 +320,7 @@ footer {
 
 /* ______________________________       MEDIA QUERIES MAX-WIDTH 450PX */
 @media only screen and (min-width: 450px) {
+
     .search-bar-div .sub-div {
         display: flex;
         justify-content: space-between;
@@ -362,6 +363,7 @@ footer {
         grid-area: first-section-sub-div;
         align-items: flex-start;
     }
+
     .first-section-sub-div h1 {
         text-align: left;
     }
@@ -383,19 +385,59 @@ footer {
         grid-gap: 2rem;
     }
 
+    /* first div inside secon section */
+    /* "What's different about Manga?" */
+    .second-section > div:first-of-type {
+        align-items: flex-start;
+    }
+
     /* select the p inside the first div of second section */
     .second-section > div:first-of-type > p {
-        margin: 40px 0;
+        margin: 30px 0;
     }
 
     /* select all child emenets of the div inside second section */
     .second-section > div:first-of-type * {
-        text-align: start;
+        text-align: left;
     }
 
     .div-1-sub-div,
     .div-2-sub-div,
     .div-3-sub-div {
         background-color: white;
+        justify-content: flex-start;
+    }
+
+    .div-1-sub-div h3,
+    .div-2-sub-div h3,
+    .div-3-sub-div h3 {
+        margin-left: 10%;
+    }
+
+    .div-1 p,
+    .div-2 p,
+    .div-3 p {
+        text-align: left;
+        padding-left: 10vw;
+    }
+
+
+
+    
+    /* __________________       <!-- What they've said (3rd Section) --> */
+    .dots-container {
+        display: none;
+    }
+
+    .div-4,
+    .div-5,
+    .div-6 {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .div-5 {
+        margin: 0 30px;
     }
 }
