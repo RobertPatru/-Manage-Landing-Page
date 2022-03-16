@@ -318,21 +318,22 @@ footer {
 }
 
 
-/* ______________________________       MEDIA QUERIES MAX-WIDTH 450PX */
+/* ______________________________       MEDIA QUERIES MIN-WIDTH 450PX */
 @media only screen and (min-width: 450px) {
 
     .search-bar-div .sub-div {
         display: flex;
         justify-content: space-between;
-        min-width: 70vw;
+        /* min-width: 70vw; */
     }
 
     .search-input {
         width: 50vw;
+        margin-right: 30px;
     }
 }
 
-/* ______________________________       MEDIA QUERIES MAX-WIDTH 850PX */
+/* ______________________________       MEDIA QUERIES MIN-WIDTH 850PX */
 @media only screen and (min-width: 850px) {
     /* =======          HEADER AND NAVBAR */
     .hidden {
@@ -439,5 +440,85 @@ footer {
 
     .div-5 {
         margin: 0 30px;
+    }
+}
+
+/* ______________________________       MEDIA QUERIES MIN-WIDTH 950PX */
+@media only screen and (min-width: 950px) {
+    /* __________________       <!-- Footer 5th Section --> */
+    .search-input {
+        width: 20vw;
+    }
+
+    
+
+    footer {
+        grid-template-areas: 
+          'logo         options-1   options-2   search-bar-div'  
+          'logo         options-1   options-2   search-bar-div'
+          'social-media options-1   options-2   copyrights'
+          'social-media options-1   options-2   copyrights'
+        ;
+        align-items: baseline;
+    }
+}
+
+/* ______________________________       MEDIA QUERIES MIN-WIDTH 1150PX */
+@media only screen and (min-width: 1150px) {
+    /* __________________       <!-- Simplify how your team work (4th Section) --> */
+    .forth-section {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+/* ______________________________       MEDIA QUERIES MIN-WIDTH 1350PX */
+@media only screen and (min-width: 1350px) {
+    header,
+    .second-section,
+    .third-section {
+        padding: 0 5vw;
+
+    }
+
+    .forth-section {
+        padding-left: 7vw;
+        padding-right: 7vw;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* ______________________________       MEDIA QUERIES MIN-WIDTH 1550PX */
+@media only screen and (min-width: 1550px) {
+    .list-item {
+        margin: 0 30px !important;
+    }
+}
+
+/* ______________________________       MEDIA QUERIES MIN-WIDTH 3000PX */
+@media only screen and (min-width: 3000px) {
+     header,
+    .second-section,
+    .third-section {
+        padding: 0 20vw;
+    }
+
+    .forth-section {
+        padding-left: 20vw;
+        padding-right: 20vw;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    footer {
+        padding: 0 30vw;
+    }
+
+    /* Second Section the 'p' under 'h3's */
+    .div-1 p,
+    .div-2 p,
+    .div-3 p {
+        padding-left: 6vw;
     }
 }
