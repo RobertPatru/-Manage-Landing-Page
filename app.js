@@ -16,7 +16,7 @@ dotsContainer.addEventListener('click', (e) => {
         }
 
         // unselect all dots
-        for(let i = 0; i < children.length; i++) {
+        for (let i = 0; i < children.length; i++) {
             children[i].classList.remove('selected');
         }
 
@@ -35,7 +35,7 @@ dotsContainer.addEventListener('click', (e) => {
         }
 
         // unselect all dots
-        for(let i = 0; i < children.length; i++) {
+        for (let i = 0; i < children.length; i++) {
             children[i].classList.remove('selected');
         }
 
@@ -54,7 +54,7 @@ dotsContainer.addEventListener('click', (e) => {
         }
 
         // unselect all dots
-        for(let i = 0; i < children.length; i++) {
+        for (let i = 0; i < children.length; i++) {
             children[i].classList.remove('selected');
         }
 
@@ -90,7 +90,7 @@ function handleTouchStart(e) {
 
 function handleTouchMove(e) {
     let touchMove = e.touches[0].clientX;
- 
+
     // moveChange will keep the difference from the starting point of touch and the current touch point on X axis
     // so I know if the user swipes left or right based on the start touch point and curent touch point
     let distanceBetweenPoints = touchStartOnXAxis - e.touches[0].clientX;
@@ -98,14 +98,19 @@ function handleTouchMove(e) {
 
     // if the user swipes from right to left
     if (distanceBetweenPoints > 150 && allolwSwipe == true) {
+        // debugger
         currentProfileDetails++;
+
+        if (currentProfileDetails > 3) {
+            currentProfileDetails = 1;
+        }
 
         if (currentProfileDetails == 1) {
             // display the correct info based on their number
             firstTestimonial.classList.remove('hidden');
             secondTestimonial.classList.add('hidden');
             thirdTestimonial.classList.add('hidden');
-         
+
 
             // "select" the correct dot by appying the class selected
             dotsContainer.children[0].classList.add('selected');
@@ -120,7 +125,7 @@ function handleTouchMove(e) {
             firstTestimonial.classList.add('hidden');
             thirdTestimonial.classList.add('hidden');
 
-            
+
             // "select" the correct dot by appying the class selected
             dotsContainer.children[1].classList.add('selected');
 
@@ -134,11 +139,6 @@ function handleTouchMove(e) {
             secondTestimonial.classList.add('hidden');
             thirdTestimonial.classList.remove('hidden');
 
-
-  
-            // increase the info id to the correct one
-            currentProfileDetails = 0;
-
             // "select" the correct dot by appying the class selected
             dotsContainer.children[2].classList.add('selected');
             // "unselect" other two orange dots
@@ -146,12 +146,12 @@ function handleTouchMove(e) {
             dotsContainer.children[1].classList.remove('selected');
         }
 
-        allolwSwipe = false;     
+        allolwSwipe = false;
     }
 
     // if the user swipes from left to right
     if (distanceBetweenPoints < -150 && allolwSwipe == true) {
-    
+
         currentProfileDetails--;
 
         if (currentProfileDetails <= 0) {
@@ -176,8 +176,8 @@ function handleTouchMove(e) {
             secondTestimonial.classList.remove('hidden');
             firstTestimonial.classList.add('hidden');
             thirdTestimonial.classList.add('hidden');
-           
-            
+
+
             // "select" the correct dot by appying the class selected
             dotsContainer.children[1].classList.add('selected');
 
@@ -190,7 +190,7 @@ function handleTouchMove(e) {
             firstTestimonial.classList.add('hidden');
             secondTestimonial.classList.add('hidden');
             thirdTestimonial.classList.remove('hidden');
-            
+
 
             // "select" the correct dot by appying the class selected
             dotsContainer.children[2].classList.add('selected');
@@ -198,9 +198,9 @@ function handleTouchMove(e) {
             dotsContainer.children[0].classList.remove('selected');
             dotsContainer.children[1].classList.remove('selected');
         }
-   
-        allolwSwipe = false;       
-    }     
+
+        allolwSwipe = false;
+    }
 }
 
 
