@@ -5,7 +5,7 @@ const firstTestimonial = document.querySelector('.div-4');
 const secondTestimonial = document.querySelector('.div-5');
 const thirdTestimonial = document.querySelector('.div-6');
 
-// Change the testimonial to see (only on phone)
+// Change the testimonial you want to see (only on phone)
 dotsContainer.addEventListener('click', (e) => {
     const children = dotsContainer.children;
 
@@ -254,3 +254,86 @@ function closeMenu(e) {
         container.classList.remove('overlay');
     }
 }
+
+
+
+// ############################ OPEN SOCIAL MEDIA SITES WHEN CLICKED ON THEIR ICON
+document.querySelector('.facebook').addEventListener('click', () => {
+    window.open('https://www.facebook.com/');
+});
+document.querySelector('.youtube').addEventListener('click', () => {
+    window.open('https://www.youtube.com/');
+});
+document.querySelector('.twitter').addEventListener('click', () => {
+    window.open('https://twitter.com/?lang=en');
+});
+document.querySelector('.printerest').addEventListener('click', () => {
+    window.open('https://ro.pinterest.com/');
+});
+document.querySelector('.instagram').addEventListener('click', () => {
+    window.open('https://www.instagram.com/');
+});
+
+
+
+// ############################ HANDLE WRONG EMAIL FORMATS INSIDE EMAIL FIELD
+// a function that searches for email paterns
+function validateEmail(mail) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailField.value)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+
+const emailField = document.querySelector('.search-input');
+
+document.querySelector('.send-email-button').addEventListener('click', () => {  
+    //  show a validation message
+    if (validateEmail(!emailField.value)) {
+        // create a div // add classes to the div 
+        const validationMessageContainer = document.createElement('div');
+        validationMessageContainer.classList.add('validation-message', 'flex-row');
+
+    
+        // create an img // add a source to the img
+        const checkMarkImg = document.createElement('img');
+        checkMarkImg.classList.add('check-mark');
+        checkMarkImg.src = '/images/check-mark.webp';
+        
+
+        // add the check mark image inside the div
+        validationMessageContainer.appendChild(checkMarkImg);
+
+
+        // createa a h3 // add thext inside the h3  // insert the h3 inside the validation message container
+        const text = document.createElement('h3');
+        text.textContent = 'An email was sent to your email address';
+        validationMessageContainer.appendChild(text);
+
+        // add the validation container inside the body's contianer
+        const container = document.querySelector('.container');
+        container.appendChild(validationMessageContainer);
+
+        
+        // REMOVE THE VALIDATION MESSAGE AFTER 3 SECONDS
+        setTimeout( () => {
+            validationMessageContainer.remove();
+        }, 3000);
+    }
+
+    // if the "email validation function" doesn't return ture then the border and text become red and placeholder changes
+    else {
+        emailField.style.border = '3px red solid';
+        emailField.style.color = 'red';
+        emailField.placeholder = 'Please insert a valid email address'
+
+        // after 3 second reverse the effects
+        setTimeout ( () => {
+            emailField.style.border = '2px rgb(133, 133, 133) solid';
+            emailField.style.color = 'black';
+        }, 3000);
+    }
+});
