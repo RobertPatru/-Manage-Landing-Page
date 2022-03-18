@@ -317,7 +317,9 @@ document.querySelector('.send-email-button').addEventListener('click', () => {
         const container = document.querySelector('.container');
         container.appendChild(validationMessageContainer);
 
-        
+        // clear the email input field
+        emailField.value = '';
+
         // REMOVE THE VALIDATION MESSAGE AFTER 3 SECONDS
         setTimeout( () => {
             validationMessageContainer.remove();
